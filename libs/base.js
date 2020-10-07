@@ -1,18 +1,17 @@
-class User{
-    constructor(fName,lName) {
-        this.fName = fName
-        this.lName = lName
+
+let showMessage = document.querySelector(".showMessage")
+console.log(showMessage)
+let mShown = false;
+showMessage.onclick = function (){
+    if(!mShown) {
+        let message = document.querySelector(".message")
+        message.style.width = "500px"
+        message.style.borderLeft = "8px solid #ffc5c5"
+        mShown = true;
+        setInterval(()=>{
+            message.style.width = "0px"
+            message.style.borderLeft = "none"
+        },3000)
     }
+
 }
-function sayHi(){
-    alert(this.fName + " " +this.lName)
-}
-function counter(){
-    let count = 0;
-    return function (){
-        count++;
-        let user = new User(`User${count}`,"ttttt")
-        sayHi.call(user)
-    }
-}
-let t = counter();
